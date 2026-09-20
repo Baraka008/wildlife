@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FFF1D6" />
+      <stop offset="35%" stop-color="#FFE6C2" />
+      <stop offset="65%" stop-color="#DFF6F9" />
+      <stop offset="100%" stop-color="#D9F6E9" />
+    </linearGradient>
+    <linearGradient id="hills" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#E6F8EA" />
+      <stop offset="100%" stop-color="#D1F2E0" />
+    </linearGradient>
+    <radialGradient id="sun" cx="20%" cy="14%" r="40%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#FFD27A" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="100%" height="100%" fill="url(#sky)" />
+
+  <!-- sun glow -->
+  <circle cx="320" cy="120" r="220" fill="url(#sun)" />
+
+  <!-- distant hills -->
+  <g transform="translate(0,220)">
+    <ellipse cx="420" cy="540" rx="700" ry="230" fill="#A8E9C9" opacity="0.95" />
+    <ellipse cx="1460" cy="520" rx="700" ry="230" fill="#C6F0DA" opacity="0.9" />
+  </g>
+
+  <!-- midground rolling dunes -->
+  <path d="M0 700 C220 640 390 620 640 690 C880 760 1200 740 1440 680 C1680 620 1920 660 1920 760 L1920 1080 L0 1080 Z" fill="#EAF9DD" />
+
+  <!-- foreground base -->
+  <rect x="0" y="760" width="1920" height="320" fill="#BFEFBF" />
+
+  <!-- acacia silhouettes (left, center, right) -->
+  <g fill="#0E3B2D" opacity="0.95">
+    <!-- left tree -->
+    <path d="M140 730 L160 730 L170 840 L150 840 Z" />
+    <circle cx="150" cy="700" r="48" />
+    <circle cx="110" cy="720" r="36" />
+    <circle cx="190" cy="720" r="36" />
+
+    <!-- center tree -->
+    <path d="M860 680 L880 680 L900 840 L860 840 Z" />
+    <circle cx="880" cy="640" r="70" />
+    <circle cx="820" cy="670" r="46" />
+    <circle cx="940" cy="670" r="46" />
+
+    <!-- right tree -->
+    <path d="M1720 720 L1740 720 L1760 840 L1720 840 Z" />
+    <circle cx="1740" cy="690" r="54" />
+    <circle cx="1690" cy="710" r="38" />
+    <circle cx="1790" cy="710" r="38" />
+  </g>
+
+  <!-- playful animal silhouettes as subtle icons on horizon -->
+  <g fill="#0B2E24" opacity="0.9" transform="translate(0,0)">
+    <!-- elephant-ish shape -->
+    <path d="M420 720 q30 -40 80 -28 q20 6 38 -6 q12 -8 40 -6 q28 2 58 20 q-10 18 -40 18 q-22 0 -34 8 q-12 8 -38 8 q-26 0 -54 0 q-28 0 -48 -18z" />
+    <!-- giraffe-ish shape -->
+    <rect x="880" y="610" width="8" height="64" rx="4" />
+    <rect x="892" y="620" width="14" height="40" rx="6" transform="rotate(-6 899 640)"/>
+    <circle cx="900" cy="610" r="28" />
+    <!-- zebra-ish stripes -->
+    <ellipse cx="1320" cy="730" rx="46" ry="30" />
+  </g>
+
+  <!-- subtle overlay to reduce card contrast -->
+  <rect width="100%" height="100%" fill="rgba(255,255,255,0.04)" />
+
+</svg>
