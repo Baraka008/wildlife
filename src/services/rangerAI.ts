@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 type GeminiResponse = {
   candidates?: Array<{
     content?: {
