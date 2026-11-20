@@ -16,7 +16,10 @@ const fallbackAnswers: Record<string, string> = {
   default: 'The Ranger is temporarily rate-limited by the AI service. Please try again in a moment, and the chatbot will answer your wildlife question shortly.',
 };
 
-const rangerApiBase = (import.meta.env.VITE_RANGER_API_URL as string | undefined)?.replace(/\\/$/, '');
+const configuredRangerApiBase = import.meta.env.VITE_RANGER_API_URL as string | undefined;
+const rangerApiBase = configuredRangerApiBase?.endsWith('/')
+  ? configuredRangerApiBase.slice(0, -1)
+  : configuredRangerApiBase;
 
 export const askRangerAI = async (prompt: string): Promise<string> => {
   try {
