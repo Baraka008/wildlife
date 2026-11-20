@@ -1,64 +1,54 @@
 # WildQuest
 
-WildQuest is a playful wildlife learning app for children. It introduces Kenyan wildlife, habitats, ecosystems, and conservation in a friendly, interactive way.
+WildQuest is a playful wildlife learning app for children, built around Kenyan animals, habitats, food chains and conservation.
 
 ## Features
+- Interactive animal library and conservation challenges
+- Progress, achievements and ecosystem learning activities
+- Ranger Amini question-and-answer service with optional Gemini/Cerebras providers
+- Responsive, animated React interface
 
-- Safari-inspired landing page and themed exploration experience
-- Animal library with child-friendly information cards
-- Ranger AI chat for wildlife questions
-- Ecosystem health dashboard and food chain challenge
-- Conservation-focused learning content for children
-- Bright, nature-inspired UI for a playful educational experience
+## Requirements
+- Node.js 20 or newer
+- Optional: Gemini or Cerebras API key for AI-generated answers
 
-## Tech Stack
+## Local development
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lucide React
-
-## Getting Started
-
-Install dependencies:
+Install dependencies once:
 
 ```bash
-npm install
+npm ci
 ```
 
-Run the app locally:
+Run the frontend in terminal 1:
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+Run the Ranger API in terminal 2:
 
 ```bash
-npm run build
+npm run dev:api
 ```
 
-## Project Structure
+The Vite development server proxies `/api` requests to the Ranger API on port 3001. The API can run without provider keys and returns a safe educational fallback response.
 
-```text
-src/
-  App.tsx
-  data.ts
-  index.css
-  main.tsx
-  types.ts
-  services/
-    rangerAI.ts
-public/
-  savannah-bg.svg
-```
+Copy `.env.example` to `.env` and add provider keys only on the server. Never place provider keys in frontend source code.
 
-## Notes
+## Production deployment
 
-This project includes a lightweight wildlife assistant flow and uses a mock ranger backend pattern suitable for future integration with a real AI service.
+The frontend is a static Vite build and can be deployed to Vercel. The Ranger API is a persistent Node HTTP service and should be deployed separately to Render or Railway.
 
-## License
+- Frontend build command: `npm ci && npm run build`
+- Frontend output directory: `dist`
+- Backend start command: `npm start`
+- Backend health endpoint: `GET /health`
+- Backend secrets: `GEMINI_API_KEY`, `CEREBRAS_API_KEY`
+- Backend port: read from `PORT` (defaults to 3001)
 
-This project is for educational and demo purposes.
+Set the frontend API base/proxy for the deployed backend before launch. Do not deploy the long-running API as a static Vercel build.
+
+## Verification
+
+`npm run build` runs TypeScript project checks and creates the production Vite bundle.
