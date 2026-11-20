@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 type GeminiResponse = {
   candidates?: Array<{
     content?: {
@@ -16,9 +18,15 @@ const fallbackAnswers: Record<string, string> = {
   default: 'The Ranger is temporarily rate-limited by the AI service. Please try again in a moment, and the chatbot will answer your wildlife question shortly.',
 };
 
+const configuredRangerApiBase = import.meta.env.VITE_RANGER_API_URL as string | undefined;
+const rangerApiBase = configuredRangerApiBase?.endsWith('/')
+  ? configuredRangerApiBase.slice(0, -1)
+  : configuredRangerApiBase;
+
 export const askRangerAI = async (prompt: string): Promise<string> => {
   try {
-    const response = await fetch('/api/ranger', {
+    const endpoint = rangerApiBase ? `${rangerApiBase}/api/ranger` : '/api/ranger';
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt }),

@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server.mjs & vite --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "dev:api": "node server.mjs",
+    "start": "node server.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.11",
